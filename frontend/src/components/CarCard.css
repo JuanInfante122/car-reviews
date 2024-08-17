@@ -1,0 +1,58 @@
+.car-card {
+  border: 2px solid rgb(51, 51, 51); /* Bordes blancos */
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px;
+  width: 300px;
+  background-color: rgb(254, 254, 254);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9); /* Sombra más oscura al hacer hover */
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  color: rgb(51, 51, 51);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.rating {
+  font-size: 1.2rem;
+  color: rgb(51, 51, 51); /* Texto blanco para la calificación */
+  margin-bottom: 12px;
+}
+
+.summary {
+  font-size: 1rem;
+  color: rgb(51, 51, 51); /* Texto blanco para el resumen */
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  background-color: rgb(66, 133, 244); /* Azul claro para los botones */
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgb(44, 92, 168); /* Azul más oscuro en hover */
+}
