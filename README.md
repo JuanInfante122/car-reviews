@@ -42,23 +42,16 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
 
 2. **Instalar Dependencias**
 
-- Crea un entorno virtual y activa:
+- Navega al directorio donde esta el backend:
 
 ```bash
-    python -m venv venv
-    source venv/bin/activate  # En Windows: venv\Scripts\activate
+   cd backend
 ```
 
 - Instala las dependencias:
 
 ```bash
-    pip install -r requirements.txt
-```
-
-- Navega al directorio donde esta el backend:
-
-```bash
-   cd backend
+   pip install -r requirements.txt
 ```
 
 - Ejecutar el servidor:
