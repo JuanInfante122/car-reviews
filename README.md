@@ -8,9 +8,8 @@ Este proyecto consiste en una aplicación web que realiza scraping de opiniones 
 2. [Instrucciones de Instalación y Ejecución](#instrucciones-de-instalación-y-ejecución)
 3. [Técnicas de IA Utilizadas](#técnicas-de-ia-utilizadas)
 4. [Librerías y Dependencias](#librerías-y-dependencias)
-5. [Estructura del Proyecto](#estructura-del-proyecto)
-6. [Contribución](#contribución)
-7. [Licencia](#licencia)
+5. [Técnicas de IA Utilizadas](#Técnicas-de-IA-Utilizadas)
+6. [Manejo de Errores](#Manejo-de-Errores-y-Casos-Extremos)
 
 ## **Descripción del Proyecto**
 
