@@ -8,9 +8,8 @@ Este proyecto consiste en una aplicación web que realiza scraping de opiniones 
 2. [Instrucciones de Instalación y Ejecución](#instrucciones-de-instalación-y-ejecución)
 3. [Técnicas de IA Utilizadas](#técnicas-de-ia-utilizadas)
 4. [Librerías y Dependencias](#librerías-y-dependencias)
-5. [Estructura del Proyecto](#estructura-del-proyecto)
-6. [Contribución](#contribución)
-7. [Licencia](#licencia)
+5. [Técnicas de IA Utilizadas](#Técnicas-de-IA-Utilizadas)
+6. [Manejo de Errores](#Manejo-de-Errores-y-Casos-Extremos)
 
 ## **Descripción del Proyecto**
 
@@ -44,8 +43,9 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
 
 2. **Instalar Dependencias**
 
-- Crea un entorno virtual y activa:
+- Navega al directorio donde esta el backend:
 
+<<<<<<< HEAD
     ```bash
     python -m venv venv
     source venv/bin/activate  # En Windows: venv\Scripts\activate
@@ -62,6 +62,17 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
     ```bash
     cd backend
     ```
+=======
+```bash
+   cd backend
+```
+
+- Instala las dependencias:
+
+```bash
+   pip install -r requirements.txt
+```
+>>>>>>> 4b25ffd0a57f3bca8a70b7fe9b215b241443eb9c
 
 - Ejecutar el servidor:
 
@@ -75,12 +86,22 @@ El backend se ejecutará en http://localhost:5000.
 
 1. **Instalar Dependencias**
 
+<<<<<<< HEAD
 - Navega al directorio del frontend:
 
     ```bash
     cd ..
     cd frontend
     ```
+=======
+Mientras se ejecuta el Backend en la terminal abre otra y:
+
+- Navega al directorio donde esta el front:
+
+```bash
+   cd frontend
+```
+>>>>>>> 4b25ffd0a57f3bca8a70b7fe9b215b241443eb9c
 
 - Instala las dependencias:
 
@@ -248,4 +269,14 @@ En esta sección se describen los posibles errores y casos extremos que puedes e
     }, []);
     ```
 
+<<<<<<< HEAD
+=======
+### **Consejos Adicionales**
+
+- **Revisa los Logs**: Los logs del navegador y del servidor pueden proporcionar información valiosa sobre los errores y problemas de la aplicación.
+- **Pruebas Unitarias**: Considera agregar pruebas unitarias para asegurar que las funciones de análisis y resumen manejen casos extremos correctamente.
+
+
+
+>>>>>>> 4b25ffd0a57f3bca8a70b7fe9b215b241443eb9c
 Credit: [JuanInfante122](https://github.com/JuanInfante122) Last Edit on 18/08/2024
