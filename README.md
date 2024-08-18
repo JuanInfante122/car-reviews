@@ -66,10 +66,11 @@ El backend se ejecutará en http://localhost:5000.
 
 1. **Instalar Dependencias**
 
+Mientras se ejecuta el Backend en la terminal abre otra y:
+
 - Navega al directorio donde esta el front:
 
 ```bash
-   cd ..
    cd frontend
 ```
 
