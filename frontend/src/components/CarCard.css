@@ -1,20 +1,64 @@
 .car-card {
-  border: 2px solid rgb(51, 51, 51); /* Bordes blancos */
-  border-radius: 12px;
-  padding: 16px;
-  margin: 16px;
+  position: relative;
   width: 300px;
-  background-color: rgb(254, 254, 254);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  height: 430px;
+  perspective: 1200px;
+  margin: 20px auto;
+  overflow: hidden;
+  transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+}
+
+.car-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-out;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.car-card.flipped .car-card-inner {
+  transform: rotateY(180deg);
+}
+
+.car-card-front, .car-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.car-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9); /* Sombra más oscura al hacer hover */
+.car-card-front {
+  background-color: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.car-card-back {
+  background-color: #f5f5f5;
+  border: 2px solid #333333;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Asegura que el gráfico no se desborde */
+}
+
+.car-card.expanded {
+  width: 500px;
+  height: 600px;
+  transition: width 0.6s ease, height 0.6s ease;
 }
 
 .car-image {
@@ -22,37 +66,95 @@
   height: auto;
   border-radius: 8px;
   margin-bottom: 16px;
+  transition: transform 0.4s ease;
 }
 
 h2 {
-  color: rgb(51, 51, 51);
+  color: #333333;
   font-size: 1.5rem;
   margin-bottom: 8px;
 }
 
 .rating {
-  font-size: 1.2rem;
-  color: rgb(51, 51, 51); /* Texto blanco para la calificación */
+  margin-top: 55px;
+  font-size: 1.4rem;
+  color: #333333;
   margin-bottom: 12px;
+}
+
+/* Estilo para el área del cambio de calificación */
+.rating-change {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.rating-change svg {
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+.rating-change span {
+  font-weight: bold;
+}
+
+.rating-change.positive {
+  color: green;
+}
+
+.rating-change.negative {
+  color: red;
+}
+
+.rating-change.neutral {
+  color: gray;
+}
+
+.rating-change .MuiSvgIcon-root {
+  font-size: 1.5rem;
+  margin-right: 5px;
 }
 
 .summary {
   font-size: 1rem;
-  color: rgb(51, 51, 51); /* Texto blanco para el resumen */
-  text-align: center;
+  color: #333333;
   margin-bottom: 16px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+.car-card.expanded .summary {
+  opacity: 1;
+  max-height: 200px;
 }
 
 .button {
   padding: 10px 20px;
   border: none;
-  background-color: rgb(66, 133, 244); /* Azul claro para los botones */
-  color: rgb(255, 255, 255);
+  background-color: #4285f4;
+  color: #ffffff;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.car-card.expanded .button {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .button:hover {
-  background-color: rgb(44, 92, 168); /* Azul más oscuro en hover */
+  background-color: #3367d6;
+}
+
+.car-card-back canvas {
+  width: 100%;
+  height: 100%; /* Asegúrate de que el gráfico ocupe todo el contenedor */
+  max-height: 300px; /* Ajusta según sea necesario */
+  display: block; /* Asegura que el canvas sea un bloque de nivel */
 }

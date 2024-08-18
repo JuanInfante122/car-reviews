@@ -8,24 +8,30 @@ const mockCars = [
     image: '/chevrolet-sail.jpg',
     logo: '/Chevrolet.png',
     brand: 'Chevrolet',
-    rating: 4.2,
+    rating: 0,
     summary: 'Loading...',
+    starDistribution: {},
+    ratingChange: 0, // Añadir ratingChange
   },
   {
     name: 'Gol',
-    image: 'volkswagen-gol.jpg',
+    image: '/volkswagen-gol.jpg',
     logo: '/Volkswagen.png',
     brand: 'Volkswagen',
-    rating: 3.8,
+    rating: 0,
     summary: 'Loading...',
+    starDistribution: {},
+    ratingChange: 0, // Añadir ratingChange
   },
   {
     name: 'Hilux',
     image: '/toyota-hilux.jpg',
     logo: '/path-to-toyota-logo.png',
     brand: 'Toyota',
-    rating: 4.7,
+    rating: 0,
     summary: 'Loading...',
+    starDistribution: {},
+    ratingChange: 0, // Añadir ratingChange
   },
 ];
 
@@ -39,22 +45,30 @@ const App = () => {
       try {
         const updatedCars = await Promise.all(
           mockCars.map(async (car) => {
-            // Construye la URL correctamente con el formato adecuado
-            const response = await fetch(`http://localhost:5000/api/opinions?model=${car.brand.toLowerCase()}/${car.name.toLowerCase().replace(/\s+/g, '-')}`);
+            const modelName = `${car.brand.toLowerCase()}/${car.name.toLowerCase().replace(/\s+/g, '-')}`;
+            const response = await fetch(`http://localhost:5000/api/opinions?model=${modelName}`);
             const data = await response.json();
-            return { ...car, summary: data.summary };
+            console.log(`Fetched data for ${car.name}:`, data);
+            return {
+              ...car,
+              summary: data.summary,
+              sentiments: data.sentiments,
+              rating: data.average_rating,
+              starDistribution: data.star_distribution,
+              ratingChange: data.rating_change, // Asignar ratingChange
+            };
           })
         );
         setCars(updatedCars);
+        console.log('Updated cars:', updatedCars); // Verifica los datos actualizados
         setLoading(false);
       } catch (error) {
         console.error('Error fetching summary:', error);
       }
     };
-
     fetchSummaries();
   }, []);
-
+  
   const filterByBrand = (brand) => {
     setSelectedBrand(selectedBrand === brand ? null : brand);
   };

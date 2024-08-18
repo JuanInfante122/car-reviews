@@ -14,7 +14,8 @@ Este proyecto consiste en una aplicación web que realiza scraping de opiniones 
 
 ## **Descripción del Proyecto**
 
-La aplicación web permite a los usuarios obtener opiniones sobre diferentes modelos de automóviles, analizar el sentimiento de estas opiniones, y generar resúmenes automáticos. La interfaz de usuario permite filtrar los automóviles por marca y visualizar los resultados de forma intuitiva.
+La aplicación web permite a los usuarios obtener opiniones sobre diferentes modelos de automóviles, analizar el sentimiento de estas opiniones, y generar resúmenes automáticos. La interfaz de usuario permite filtrar los automóviles por marca y visualizar los resultados de forma intuitiva. Además, la aplicación muestra la actualización y los cambios en el rating en tiempo real, y la API se actualiza en tiempo real para reflejar los datos más recientes.
+
 
 ### **Características Principales**
 
@@ -22,6 +23,7 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
 - **Análisis de Sentimientos**: Utiliza VADER para analizar el sentimiento de las opiniones.
 - **Resumen Automático**: Genera un resumen de las opiniones usando TextRank.
 - **Interfaz de Usuario**: Permite filtrar y mostrar los automóviles por marca utilizando React.
+- **Fecha y Hora de Actualización**: Muestra la fecha y hora de la última actualización de los datos.
 
 ## **Instrucciones de Instalación y Ejecución**
 
@@ -35,38 +37,37 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
 
 1. **Clonar el Repositorio**
 
-```bash
-   git clone https://github.com/JuanInfante122/car-reviews.git
-   cd car-reviews
-```
-
+    ```bash
+    git clone https://github.com/JuanInfante122/car-reviews.git
+    cd car-reviews
+    ```
 
 2. **Instalar Dependencias**
 
 - Crea un entorno virtual y activa:
 
-```bash
+    ```bash
     python -m venv venv
     source venv/bin/activate  # En Windows: venv\Scripts\activate
-```
+    ```
 
 - Instala las dependencias:
 
-```bash
+    ```bash
     pip install -r requirements.txt
-```
+    ```
 
-- Navega al directorio donde esta el backend:
+- Navega al directorio del backend:
 
-```bash
-   cd backend
-```
+    ```bash
+    cd backend
+    ```
 
 - Ejecutar el servidor:
 
-```bash
+    ```bash
     python main.py
-```
+    ```
 
 El backend se ejecutará en http://localhost:5000.
 
@@ -74,51 +75,60 @@ El backend se ejecutará en http://localhost:5000.
 
 1. **Instalar Dependencias**
 
-- Navega al directorio donde esta el front:
+- Navega al directorio del frontend:
 
-```bash
-   cd ..
-   cd frontend
-```
+    ```bash
+    cd ..
+    cd frontend
+    ```
 
 - Instala las dependencias:
 
-```bash
-   npm install
-```
+    ```bash
+    npm install
+    ```
 
-- Ejecutar la Aplicacion:
+- Ejecutar la Aplicación:
 
-```bash
-   npm start
-```
+    ```bash
+    npm start
+    ```
 
-### **Técnicas de IA Utilizadas**
+## **Técnicas de IA Utilizadas**
 
 **Análisis de Sentimientos**
 
 VADER (Valence Aware Dictionary and sEntiment Reasoner): Es una herramienta de análisis de sentimientos que utiliza un diccionario léxico y una serie de reglas heurísticas para analizar el sentimiento en textos. Se utiliza para categorizar las opiniones como positivas, negativas o neutrales en función del puntaje de sentimiento.
 
-**Resumen Automatico**
+**Resumen Automático**
 
-TextRank: Un algoritmo de resumen basado en el modelo de PageRank. Este modelo clasifica las oraciones en un texto para determinar cuáles son las más importantes y generar un resumen coherente. Utiliza el análisis de texto y el cálculo de la similitud entre las oraciones para producir el resumen
+TextRank: Un algoritmo de resumen basado en el modelo de PageRank. Este modelo clasifica las oraciones en un texto para determinar cuáles son las más importantes y generar un resumen coherente. Utiliza el análisis de texto y el cálculo de la similitud entre las oraciones para producir el resumen.
 
-
-### **Librerias y Dependencias**
+## **Librerías y Dependencias**
 
 **Backend**
 
-- Flask: Framework web para Python. (Instalación: pip install Flask)
-- requests: Para realizar solicitudes HTTP. (Instalación: pip install requests)
-- BeautifulSoup: Para el scraping de contenido web. (Instalación: pip install beaautifulsoup4)
-- vaderSentiment: Herramienta para el análisis de sentimientos. (Instalación: pip install vaderSentiment)
-- nltk: Biblioteca para procesamiento de lenguaje natural. (Instalación: pip install nltk)
-- sumy: Para el resumen automático de texto. (Instalación: pip install sumy)
+- Flask: Framework web para Python. (Instalación: `pip install Flask`)
+- requests: Para realizar solicitudes HTTP. (Instalación: `pip install requests`)
+- BeautifulSoup: Para el scraping de contenido web. (Instalación: `pip install beautifulsoup4`)
+- vaderSentiment: Herramienta para el análisis de sentimientos. (Instalación: `pip install vaderSentiment`)
+- nltk: Biblioteca para procesamiento de lenguaje natural. (Instalación: `pip install nltk`)
+- sumy: Para el resumen automático de texto. (Instalación: `pip install sumy`)
+- flask_cors: Para manejar CORS en Flask. (Instalación: `pip install flask-cors`)
 
 **Frontend**
 
-- React: Biblioteca para la construcción de interfaces de usuario. (Instalación: npx create-react-app frontend)
-- axios: Para realizar solicitudes HTTP desde el frontend. (Instalación: npm install axios)
+- React: Biblioteca para la construcción de interfaces de usuario. (Instalación: `npx create-react-app frontend`)
+- axios: Para realizar solicitudes HTTP desde el frontend. (Instalación: `npm install axios`)
+- react-chartjs-2: Librería para integrar Chart.js con React. (Instalación: `npm install react-chartjs-2 chart.js`)
+- @mui/icons-material: Iconos de Material UI para React. (Instalación: `npm install @mui/icons-material`)
+
+## **Estructura del Proyecto**
+
+El proyecto se divide en dos carpetas principales:
+
+- **backend**: Contiene el código del servidor Flask, incluyendo la lógica de scraping, análisis de sentimientos, y resumen automático.
+- **frontend**: Contiene el código de la interfaz de usuario construida con React.
 
 ## **Manejo de Errores y Casos Extremos**
 
@@ -237,12 +247,5 @@ En esta sección se describen los posibles errores y casos extremos que puedes e
       fetchData();
     }, []);
     ```
-
-### **Consejos Adicionales**
-
-- **Revisa los Logs**: Los logs del navegador y del servidor pueden proporcionar información valiosa sobre los errores y problemas de la aplicación.
-- **Pruebas Unitarias**: Considera agregar pruebas unitarias para asegurar que las funciones de análisis y resumen manejen casos extremos correctamente.
-
-
 
 Credit: [JuanInfante122](https://github.com/JuanInfante122) Last Edit on 18/08/2024
