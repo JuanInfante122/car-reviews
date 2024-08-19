@@ -51,8 +51,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow: hidden; /* Asegura que el gráfico no se desborde */
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
 .car-card.expanded {
@@ -76,13 +76,12 @@ h2 {
 }
 
 .rating {
-  margin-top: 55px;
+  margin-top: 45px;
   font-size: 1.4rem;
   color: #333333;
   margin-bottom: 12px;
 }
 
-/* Estilo para el área del cambio de calificación */
 .rating-change {
   display: flex;
   align-items: center;
@@ -116,6 +115,10 @@ h2 {
   margin-right: 5px;
 }
 
+.car-card.expanded .rating-change.negative {
+  display: none;
+}
+
 .summary {
   font-size: 1rem;
   color: #333333;
@@ -129,6 +132,13 @@ h2 {
 .car-card.expanded .summary {
   opacity: 1;
   max-height: 200px;
+}
+
+.explanation {
+  font-size: 1rem;
+  color: #666666;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .button {
@@ -154,7 +164,16 @@ h2 {
 
 .car-card-back canvas {
   width: 100%;
-  height: 100%; /* Asegúrate de que el gráfico ocupe todo el contenedor */
-  max-height: 300px; /* Ajusta según sea necesario */
-  display: block; /* Asegura que el canvas sea un bloque de nivel */
+  max-height: 100%; /* Ajuste de altura máxima para ocupar todo el espacio disponible */
+  display: block;
+  flex-grow: 1; /* Hace que el diagrama crezca para ocupar espacio */
+}
+
+.car-card.expanded .car-card-back .button {
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+.car-card.expanded .rating {
+  margin-top: 0px; /* Ajusta este valor según sea necesario para mover el rating hacia arriba */
 }

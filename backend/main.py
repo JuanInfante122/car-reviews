@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import nltk
 import re
-from sumy.parsers.plaintext import PlaintextParser
-from sumy.nlp.tokenizers import Tokenizer
-from sumy.summarizers.text_rank import TextRankSummarizer
 from collections import Counter
 from flask_cors import CORS
 from datetime import datetime
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.text_rank import TextRankSummarizer
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -32,18 +32,18 @@ def remove_stopwords(text):
     filtered_words = [word for word in words if word.lower() not in stopwords_es]
     return ' '.join(filtered_words)
 
-def get_opinions_and_ratings(model, min_opinions=10):
+def get_opinions_and_ratings(model, max_opinions=10):
     url = f'https://www.opinautos.com/co/{model}/opiniones'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
     opinions = []
     ratings = []
-    exclude_phrases = ['Lo mejor', 'Lo peor', 'Busca tu problema', 'Deja tu opinión', 'ModelXXXX']
+    exclude_phrases = ['Lo mejor', 'Lo peor', 'Busca tu problema', 'Deja tu opinión', 'ModelXXXX', 'xxx']
 
     for opinion_span in soup.find_all('span', class_='align-middle'):
         cleaned_text = clean_text(opinion_span.get_text(strip=True))
-        if cleaned_text and len(opinions) < min_opinions and not any(phrase in cleaned_text for phrase in exclude_phrases):
+        if cleaned_text and len(opinions) < max_opinions and not any(phrase in cleaned_text for phrase in exclude_phrases):
             opinions.append(cleaned_text)
 
     for rating_box in soup.find_all('div', class_='LeftRightBox__left LeftRightBox__left--noshrink'):
@@ -54,9 +54,7 @@ def get_opinions_and_ratings(model, min_opinions=10):
                 stars += 1
         ratings.append(stars)
 
-    opinions = opinions[:min_opinions]
-
-    if len(opinions) < min_opinions:
+    if len(opinions) < max_opinions:
         print(f'No se encontraron suficientes opiniones para {model}. Solo se encontraron {len(opinions)} opiniones.')
 
     return opinions, ratings
@@ -76,13 +74,21 @@ def analyze_sentiments(opinions):
         sentiments.append((opinion, sentiment_label, sentiment_score))
     return sentiments
 
-def summarize(opinions, num_sentences=5):
-    text = " ".join(opinions)
-    cleaned_text = remove_stopwords(text)
-    parser = PlaintextParser.from_string(cleaned_text, Tokenizer('spanish'))
+def summarize_with_textrank(opinions):
+    text = "\n".join(opinions)
+    parser = PlaintextParser.from_string(text, Tokenizer("spanish"))
     summarizer = TextRankSummarizer()
-    summary_sentences = summarizer(parser.document, num_sentences)
+    summary_sentences = summarizer(parser.document, 5)  # Extrae las 2 oraciones principales
+
     summary = " ".join([str(sentence) for sentence in summary_sentences])
+    summary = re.sub(r'\s+', ' ', summary).strip()
+
+    # Limitar el resumen a un párrafo de dos líneas (aproximadamente 200 caracteres)
+    if len(summary) > 200:
+        # Cortar hasta el último espacio antes del límite de 200 caracteres
+        last_space = summary[:150].rfind(' ')
+        summary = summary[:last_space] + '.'
+
     return summary
 
 def calculate_rating_change(ratings):
@@ -102,7 +108,7 @@ def get_car_opinions():
     print(f"Fetching data for model: {model}")
     opinions, ratings = get_opinions_and_ratings(model)
     sentiments = analyze_sentiments(opinions)
-    summary = summarize(opinions)
+    summary = summarize_with_textrank(opinions)
     average_rating = sum(ratings) / len(ratings) if ratings else None
 
     star_distribution = Counter(ratings)
@@ -110,7 +116,6 @@ def get_car_opinions():
     
     rating_change = calculate_rating_change(ratings)
 
-    # Registrar la fecha y hora de la última actualización
     last_updated = datetime.now().isoformat()
 
     print(f"Opinions: {opinions}")
@@ -133,4 +138,3 @@ def get_car_opinions():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
