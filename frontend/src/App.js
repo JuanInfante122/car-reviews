@@ -11,7 +11,7 @@ const mockCars = [
     rating: 0,
     summary: 'Loading...',
     starDistribution: {},
-    ratingChange: 0, // Añadir ratingChange
+    ratingChange: 0,
   },
   {
     name: 'Gol',
@@ -21,7 +21,7 @@ const mockCars = [
     rating: 0,
     summary: 'Loading...',
     starDistribution: {},
-    ratingChange: 0, // Añadir ratingChange
+    ratingChange: 0,
   },
   {
     name: 'Hilux',
@@ -31,7 +31,7 @@ const mockCars = [
     rating: 0,
     summary: 'Loading...',
     starDistribution: {},
-    ratingChange: 0, // Añadir ratingChange
+    ratingChange: 0,
   },
 ];
 
@@ -55,12 +55,12 @@ const App = () => {
               sentiments: data.sentiments,
               rating: data.average_rating,
               starDistribution: data.star_distribution,
-              ratingChange: data.rating_change, // Asignar ratingChange
+              ratingChange: data.rating_change,
             };
           })
         );
         setCars(updatedCars);
-        console.log('Updated cars:', updatedCars); // Verifica los datos actualizados
+        console.log('Updated cars:', updatedCars);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching summary:', error);

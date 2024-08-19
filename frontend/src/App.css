@@ -1,7 +1,7 @@
 body {
   font-family: 'Roboto', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background-color: rgba(245,245,245,255); /* Azul más oscuro para el fondo */
-  color: rgb(255, 255, 255); /* Texto blanco por defecto */
+  background-color: rgba(245,245,245,255);
+  color: rgb(255, 255, 255);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,10 +18,10 @@ body {
 
 .header {
   width: 100%;
-  background-color: rgb(37, 55, 74); /* Negro para el fondo del header */
+  background-color: rgb(37, 55, 74);
   padding: 60px;
   margin-bottom: 20px;
-  color: rgb(255, 255, 255); /* Texto blanco */
+  color: rgb(255, 255, 255);
 }
 
 .header img {

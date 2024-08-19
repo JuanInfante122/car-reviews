@@ -78,14 +78,13 @@ def summarize_with_textrank(opinions):
     text = "\n".join(opinions)
     parser = PlaintextParser.from_string(text, Tokenizer("spanish"))
     summarizer = TextRankSummarizer()
-    summary_sentences = summarizer(parser.document, 5)  # Extrae las 2 oraciones principales
+    summary_sentences = summarizer(parser.document, 5)
 
     summary = " ".join([str(sentence) for sentence in summary_sentences])
     summary = re.sub(r'\s+', ' ', summary).strip()
 
-    # Limitar el resumen a un párrafo de dos líneas (aproximadamente 200 caracteres)
     if len(summary) > 200:
-        # Cortar hasta el último espacio antes del límite de 200 caracteres
+        
         last_space = summary[:150].rfind(' ')
         summary = summary[:last_space] + '.'
 
@@ -93,8 +92,8 @@ def summarize_with_textrank(opinions):
 
 def calculate_rating_change(ratings):
     if len(ratings) < 2:
-        return 0  # No suficiente datos para cambio, retornar 0 en lugar de None.
-    current_avg = sum(ratings[-5:]) / len(ratings[-5:])  # Últimos 5 ratings
+        return 0  
+    current_avg = sum(ratings[-5:]) / len(ratings[-5:])
     previous_avg = sum(ratings[:-5]) / len(ratings[:-5]) if len(ratings) > 5 else sum(ratings) / len(ratings)
     change = current_avg - previous_avg
     return round(change, 1)

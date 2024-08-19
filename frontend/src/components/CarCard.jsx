@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import './CarCard.css';
-import { ArrowUpward, ArrowDownward, ArrowForward } from '@mui/icons-material'; // Importar ArrowForward para la flecha gris
+import { ArrowUpward, ArrowDownward, ArrowForward } from '@mui/icons-material';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 

@@ -164,9 +164,9 @@ h2 {
 
 .car-card-back canvas {
   width: 100%;
-  max-height: 100%; /* Ajuste de altura máxima para ocupar todo el espacio disponible */
+  max-height: 100%;
   display: block;
-  flex-grow: 1; /* Hace que el diagrama crezca para ocupar espacio */
+  flex-grow: 1;
 }
 
 .car-card.expanded .car-card-back .button {
@@ -175,5 +175,5 @@ h2 {
 }
 
 .car-card.expanded .rating {
-  margin-top: 0px; /* Ajusta este valor según sea necesario para mover el rating hacia arriba */
+  margin-top: 0px;
 }

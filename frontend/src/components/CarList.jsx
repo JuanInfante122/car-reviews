@@ -21,7 +21,7 @@ const CarList = ({ cars }) => {
           isExpanded={expandedCar === car}
           onClick={() => handleCardClick(car)}
           starDistribution={car.starDistribution}
-          ratingChange={car.ratingChange} // Pasar ratingChange
+          ratingChange={car.ratingChange}
         />
       ))}
     </div>
