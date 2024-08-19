@@ -248,4 +248,4 @@ En esta sección se describen los posibles errores y casos extremos que puedes e
 
 
 
-Credit: [JuanInfante122](https://github.com/JuanInfante122) Last Edit on 18/08/2024
+Credit: [JuanInfante122](https://github.com/JuanInfante122) Last Edit on 19/08/2024
