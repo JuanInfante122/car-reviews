@@ -45,24 +45,6 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
 
 - Navega al directorio donde esta el backend:
 
-<<<<<<< HEAD
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # En Windows: venv\Scripts\activate
-    ```
-
-- Instala las dependencias:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-- Navega al directorio del backend:
-
-    ```bash
-    cd backend
-    ```
-=======
 ```bash
    cd backend
 ```
@@ -72,7 +54,6 @@ La aplicación web permite a los usuarios obtener opiniones sobre diferentes mod
 ```bash
    pip install -r requirements.txt
 ```
->>>>>>> 4b25ffd0a57f3bca8a70b7fe9b215b241443eb9c
 
 - Ejecutar el servidor:
 
@@ -86,14 +67,6 @@ El backend se ejecutará en http://localhost:5000.
 
 1. **Instalar Dependencias**
 
-<<<<<<< HEAD
-- Navega al directorio del frontend:
-
-    ```bash
-    cd ..
-    cd frontend
-    ```
-=======
 Mientras se ejecuta el Backend en la terminal abre otra y:
 
 - Navega al directorio donde esta el front:
@@ -101,7 +74,6 @@ Mientras se ejecuta el Backend en la terminal abre otra y:
 ```bash
    cd frontend
 ```
->>>>>>> 4b25ffd0a57f3bca8a70b7fe9b215b241443eb9c
 
 - Instala las dependencias:
 
@@ -269,8 +241,6 @@ En esta sección se describen los posibles errores y casos extremos que puedes e
     }, []);
     ```
 
-<<<<<<< HEAD
-=======
 ### **Consejos Adicionales**
 
 - **Revisa los Logs**: Los logs del navegador y del servidor pueden proporcionar información valiosa sobre los errores y problemas de la aplicación.
@@ -278,5 +248,4 @@ En esta sección se describen los posibles errores y casos extremos que puedes e
 
 
 
->>>>>>> 4b25ffd0a57f3bca8a70b7fe9b215b241443eb9c
 Credit: [JuanInfante122](https://github.com/JuanInfante122) Last Edit on 18/08/2024
