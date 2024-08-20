@@ -13,7 +13,7 @@ Este proyecto consiste en una aplicación web que realiza scraping de opiniones 
 
 ## **Descripción del Proyecto**
 
-La aplicación web permite a los usuarios obtener opiniones sobre diferentes modelos de automóviles, analizar el sentimiento de estas opiniones, y generar resúmenes automáticos. La interfaz de usuario permite filtrar los automóviles por marca y visualizar los resultados de forma intuitiva. Además, la aplicación muestra la actualización y los cambios en el rating en tiempo real, y la API se actualiza en tiempo real para reflejar los datos más recientes.
+La aplicación web permite a los usuarios obtener opiniones sobre diferentes modelos de automóviles, analizar el sentimiento de estas opiniones, y generar resúmenes automáticos. La interfaz de usuario permite filtrar los automóviles por marca dandole en el logo de la marca y visualizar los resultados de forma intuitiva. Además, la aplicación muestra la actualización y los cambios en el rating en tiempo real, y la API se actualiza en tiempo real para reflejar los datos más recientes.
 
 
 ### **Características Principales**
